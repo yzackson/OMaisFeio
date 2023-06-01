@@ -3,6 +3,11 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <style>
+    body {
+      position: relative;  
+      margin: 0;
+      height: 100%;
+    }
     .alert {
       position: absolute;
       top: 50%;
@@ -18,8 +23,9 @@
     }
 
     .card {
-        margin-left: 50vw;
-        margin-top: 50vh;
+      position: absolute;
+        left: 10px;
+        top: 10px;
         width: 18rem;
     }
   </style>
@@ -46,10 +52,14 @@
     var text = document.querySelector('.card-text');
 
     optionB.addEventListener('mouseover', function() {
-        randomA = Math.random()*100;
-        randomB = Math.random()*100;
-      alertBox.style['margin-left'] = randomA + 'vw';
-      alertBox.style['margin-top'] = randomB + 'vh';
+        var randomA;
+        var randomB;
+        do{
+          randomA = Math.random()*1000;
+          randomB = Math.random()*1000;
+        } while (randomA > 700 || randomB > 500)
+      alertBox.style['left'] = randomA + 'px';
+      alertBox.style['top'] = randomB + 'px';
     });
 
     optionA.addEventListener('click', function() {
